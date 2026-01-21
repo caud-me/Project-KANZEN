@@ -1,0 +1,380 @@
+
+/* fonts & defaults */
+@font-face {
+    font-family: "conthrax";
+    src: url(resource_fontconthrax.otf);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* layout utilities */
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-image: url('web.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #1a1a1a;
+}
+
+.main-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 4rem 8rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-header { margin-bottom: 2rem; }
+.logo-header img {
+    max-width: 75%;
+    height: auto;
+    display: block;
+    max-height: 60px; 
+}
+
+h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+h2:first-of-type { margin-top: 0; }
+
+/* cards (content & misc) */
+.version-tag {
+    font-size: 0.6em;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 10px;
+    color: #ffcae0;
+    display: inline-block;
+}
+
+.content-card {
+    margin-bottom: 2rem;
+    width: 100%;
+    border-radius: 12px;
+    padding: 40px;
+    border: 1px solid transparent;
+
+    background: 
+        linear-gradient(to bottom, rgba(255, 0, 111, 1), rgba(255, 0, 111, 0)),
+        linear-gradient(to bottom, #353535, #353535), 
+        linear-gradient(to bottom, rgba(255, 0, 111, 1), rgba(255, 78, 149, 0));
+
+    background-clip: padding-box, padding-box, border-box;
+    background-origin: padding-box, padding-box, border-box;
+    background-blend-mode: overlay, normal, normal;
+    
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.misc {
+    margin-bottom: 2rem;
+    width: 100%;
+    border-radius: 12px;
+    padding: 40px;
+    border: 1px solid rgba(255, 0, 111, 0.5);
+    background: rgba(255, 0, 111, 0.1);
+}
+
+/* changelog items */
+.change-item {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.item-icon {
+    width: 24px; 
+    margin-right: 12px;
+    margin-top: 4px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.item-content { flex-grow: 1; }
+
+.description {
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.author {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+}
+
+/* Icons */
+.fa-plus { color: #8aff8a; }
+.fa-wrench { color: #8addff; }
+.fa-bug { color: #ff8a8a; }
+
+/* feedback section */
+.feedback-card {
+    margin-bottom: 2rem;
+    width: 100%;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid transparent;
+
+    background: 
+        linear-gradient(to bottom, rgba(0, 210, 255, 1), rgba(0, 210, 255, 0)),
+        linear-gradient(to bottom, #353535, #353535), 
+        linear-gradient(to bottom, rgba(0, 210, 255, 1), rgba(0, 140, 255, 0));
+
+    background-clip: padding-box, padding-box, border-box;
+    background-origin: padding-box, padding-box, border-box;
+    background-blend-mode: overlay, normal, normal;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.feedback-text h2 {
+    margin-bottom: 10px;
+    color: #8afff7; 
+    border-bottom: none; 
+    padding-bottom: 0;
+}
+
+@keyframes pulse-cyan {
+    0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.6); }
+    70% { box-shadow: 0 0 0 1rem rgba(0, 210, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
+
+.feedback-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #00d2ff;
+    color: #00d2ff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    animation: pulse-cyan 2s infinite;
+}
+
+.feedback-btn:hover {
+    background: #00d2ff;
+    color: #1a1a1a; 
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* full width banner */
+.full-width-download-banner {
+    height: 50vh;
+    min-height: 50vh;
+    width: 100%;
+    padding: 8rem 2rem;
+    background-image: url('bg.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    /* background-attachment: fixed; */
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+}
+
+.banner-logo img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(255, 0, 111, 0.6));
+}
+
+.rhombus-download-btn {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'conthrax', sans-serif;
+    letter-spacing: 1px;
+    padding: 1rem 3rem;
+    background: linear-gradient(90deg, #ff006f, #ff4e95);
+    transform: skewX(-10deg);
+    transition: all 0.2s ease;
+    box-shadow: 0 0 20px rgba(255, 0, 111, 0.4);
+    border: none;
+    border-radius: .25rem;
+}
+
+.rhombus-download-btn .btn-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: skewX(5deg); /* Counter skew */
+}
+
+.rhombus-download-btn:hover {
+    transform: skewX(-10deg) translateY(-3px) scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 0, 111, 0.7);
+    background: linear-gradient(90deg, #ff2a85, #ff70a6);
+}
+
+.rhombus-download-btn.big-rhombus {
+    font-size: 1.3rem;
+    padding: 1.2rem 4rem;
+}
+
+/* footer */
+.site-footer {
+    margin-top: auto; 
+    width: 100%;
+    padding: 3rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 0, 111, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-content {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-left .copyright {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-left .disclaimer {
+    font-size: 0.8rem;
+    max-width: 400px;
+    line-height: 1.4;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #FF4E95;
+    transform: translateY(-3px);
+    text-shadow: 0 0 10px rgba(255, 0, 111, 0.5);
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.1s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* mobile adjustments (merged) */
+@media (max-width: 768px) {
+    /* layout */
+    .main-container { padding: 2rem; }
+    .content-card, .misc { padding: 2rem; }
+    
+    /* typography */
+    h2 { font-size: 1.25rem; }
+    .author {
+        display: block; 
+        margin-left: 0; 
+        margin-top: 4px; 
+        font-size: 0.8rem;
+    }
+
+    /* feedback card */
+    .feedback-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+    .feedback-btn { width: 100%; }
+
+
+    .full-width-download-banner {
+        padding: 0;
+    }
+    .banner-content {
+        justify-content: center;
+        height: 100%; 
+        gap: 1rem;
+    }
+    .banner-logo img {
+        max-width: 75%;
+        margin-bottom: 0.5rem;
+    }
+    .rhombus-download-btn.big-rhombus {
+        width: 80%;
+        padding: 1rem;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-right { align-items: center; }
+    .footer-left .disclaimer { margin: 0 auto; }
+}
